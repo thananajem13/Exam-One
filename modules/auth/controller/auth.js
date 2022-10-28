@@ -179,6 +179,7 @@ export const confirmEmail = async (req, res) => {
 export const SignIn = async (req, res) => {
 
     try {
+
         const { email, password } = req.body
         const user = await userModel.findOne({ email, isBlocked: false,isDeleted:false, confirmEmail: true }) 
         if (!user) {
@@ -188,6 +189,7 @@ export const SignIn = async (req, res) => {
             if (!match) {
                 res.status(400).json({ message: "invalid account" })
             } else {
+
                 const token = jwt.sign({ id: user._id, loggedIn: true }, process.env.loginToken, { expiresIn: '1h' })
                 const rfToken = jwt.sign({ id: user._id, loggedIn: true }, process.env.loginToken)//by this way or navigate refresh token router
                
