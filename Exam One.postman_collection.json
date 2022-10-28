@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "05966b8e-b402-462b-ac81-32dae2ce6598",
+		"name": "Exam One",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21953247"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTg2ZDY5MzdlNTQwOGY0MDZlMGYyNSIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3Mzk1OTcsImV4cCI6MTY2Njc0MzE5N30.SrY0C3lDyZPIyOlozjYzRSM4zc0H_J1FEXAqXBlrFZ0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phone\": \"1234567898\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/updateProfile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTg3YTg2NzQ0ZGVlYTg4MGFhMTA3YiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3NDI5NTAsImV4cCI6MTY2Njc0NjU1MH0.gdslazrhoK64heBPm0-1vpv9X9O7M2IH000Et4zcbaI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"password\":\"tes23T234$123\",\r\n        \"oldPass\":\"tes23T234$\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/updatePassword",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "softDeleteProfile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTkxMGJhZGRiZGVjNDYzNDI3MjhiZSIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3OTQzMjMsImV4cCI6MTY2Njc5NzkyM30.bXasd1vsjhs5ERajosOdEmNSJt8qw4EELW-mMzMrvYY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/user/softDeleteProfile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"softDeleteProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blockAccount",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTkzODk2NWMzNTliMWRiYzIwMWY3ZSIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3OTE2MDYsImV4cCI6MTY2Njc5NTIwNn0.JwB2eRzq79GqmKsms2iMfhUE6Wk2oDqPGeIw2DUBfvY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":\"635910baddbdec46342728be\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/blockAccount",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"blockAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY5NTE5ODIsImV4cCI6MTY2Njk1NTU4Mn0.RvMblUj4iPipzbe9DPZ98d4i6P5jhn6egiexsIWR94o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/user/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"test\",\r\n    \"lastName\":\"test\",\r\n    \"email\":\"thana.najem3@gmail.com\",\r\n    \"password\":\"Thana.123\",\r\n    \"gender\":\"female\",\r\n    \"phone\":\"12563\",\r\n    \"age\":\"123\",\r\n    \"address\":\"5 street Jersey City NJ 12345\",\r\n    \"cPassword\":\"Thana.123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n         \"email\":\"thana.najem3@gmail.com\",\r\n    \"password\":\"Test.123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signin",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"thana.najem13@gmail.com\",\r\n    \"password\":\"123456qwert$EE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signin",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/getUserByID/635837d0239caff3e6d0ab97",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"getUserByID",
+								"635837d0239caff3e6d0ab97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refToken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/refToken/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTkxMGJhZGRiZGVjNDYzNDI3MjhiZSIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3ODcwODR9.zHZgKmFjs2QIqHmkU7uQoBj5KvrFoxyONW4xOKqRzp4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"refToken",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTkxMGJhZGRiZGVjNDYzNDI3MjhiZSIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY3ODcwODR9.zHZgKmFjs2QIqHmkU7uQoBj5KvrFoxyONW4xOKqRzp4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPass",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"thana.najem3@gmail.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/forgetPass",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"forgetPass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpass",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/resetPass/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImNvZGUiOiJhdVc5NWt0Z1E0OUxiajhEVy1pSlQiLCJpYXQiOjE2NjY4Mzg3MDYsImV4cCI6MTY2NjgzOTMwNn0.d7Oe0IUjoJ8hM6azkoHnvfowCNUzZG6iZ0DptslzANs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"resetPass",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImNvZGUiOiJhdVc5NWt0Z1E0OUxiajhEVy1pSlQiLCJpYXQiOjE2NjY4Mzg3MDYsImV4cCI6MTY2NjgzOTMwNn0.d7Oe0IUjoJ8hM6azkoHnvfowCNUzZG6iZ0DptslzANs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postresPass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"thana.najem3@gmail.com\",\r\n \"newPassword\":\"Test.123\",\r\n \"code\":\"auW95ktgQ49Lbj8DW-iJT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/postResetpass/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"postResetpass",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4Mjg5ODksImV4cCI6MTY2NjgzMjU4OX0.X9qRqNOmRnRJlfvANfO4ifAKJS5_qmKbUmnSmjFf4PA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"product#3\",\r\n     \"description\":\"prod#1 desc\",\r\n      \"price\":12.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/addProduct",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MDEwMDIsImV4cCI6MTY2NjgwNDYwMn0.W0Yn1oxzVy9DrgaCTDkly2nllREO8zDe8_iqSm9tb-s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"product12\",\r\n     \"description\":\"prod#1 desc\",\r\n      \"price\":12.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/updateProduct/63595d91d880d4dd1e5486e2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"updateProduct",
+								"63595d91d880d4dd1e5486e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MDEwMDJ9.qniX7FrmQWcROg-_8Pi1o2bcCeOfR_VXS38K0KK01SY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/product/deleteProduct/63595d91d880d4dd1e5486e2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"deleteProduct",
+								"63595d91d880d4dd1e5486e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "softDeleteProduct",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MDEwMDJ9.qniX7FrmQWcROg-_8Pi1o2bcCeOfR_VXS38K0KK01SY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/product/softDeleteProduct/63595d89d880d4dd1e5486be",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"softDeleteProduct",
+								"63595d89d880d4dd1e5486be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/product/getProductByID/6359cad56dcaa1b7a9588b1e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"getProductByID",
+								"6359cad56dcaa1b7a9588b1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "likeProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4Mjg5ODksImV4cCI6MTY2NjgzMjU4OX0.X9qRqNOmRnRJlfvANfO4ifAKJS5_qmKbUmnSmjFf4PA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/product/likeProduct/6359cad56dcaa1b7a9588b1e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"likeProduct",
+								"6359cad56dcaa1b7a9588b1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlikeProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MDEwMDJ9.qniX7FrmQWcROg-_8Pi1o2bcCeOfR_VXS38K0KK01SY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/product/unLikeProduct/63595c12d880d4dd1e548673",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"unLikeProduct",
+								"63595c12d880d4dd1e548673"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productTitleSearch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"#1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/productTitleSearch",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"productTitleSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProduct",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "addComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTljYWE3NmRjYWExYjdhOTU4OGIwYiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MzQ5NDEsImV4cCI6MTY2NjgzODU0MX0.0aHICBpoUZnSj3wkEgELMVpqTW3O-uu2gK6CmU1KygM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentBody\":\"comment #3 \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/comment/addComment/6359cad56dcaa1b7a9588b1e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comment",
+								"addComment",
+								"6359cad56dcaa1b7a9588b1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MDEwMDJ9.qniX7FrmQWcROg-_8Pi1o2bcCeOfR_VXS38K0KK01SY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentBody\": \"updated comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/comment/updateComment/6359904df92b1ab5e5a07ee5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comment",
+								"updateComment",
+								"6359904df92b1ab5e5a07ee5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "softDelete",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "_*_Thana_*_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNTk1YzMwZDg4MGQ0ZGQxZTU0ODY4NiIsImxvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NjY4MTgxMDQsImV4cCI6MTY2NjgyMTcwNH0.IWgagqM3AGwYEX45_-s_VOhDycKkrXv8U3E5Ckk5m7c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/comment/softDeleteComment/6359a08a88cad1c09dc23d47",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"comment",
+								"softDeleteComment",
+								"6359a08a88cad1c09dc23d47"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
