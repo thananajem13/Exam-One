@@ -1,0 +1,39 @@
+{
+  "name": "exam-one",
+  "version": "1.0.0",
+  "description": "exam one",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thananajem13/examOneNodeJS.git"
+  },
+  "keywords": [
+    "exam",
+    "nodejs"
+  ],
+  "author": "thana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thananajem13/examOneNodeJS/issues"
+  },
+  "homepage": "https://github.com/thananajem13/examOneNodeJS#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "encrypt-phone-numbers": "^1.0.2",
+    "express": "^4.18.2",
+    "joi": "^17.6.4",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.0",
+    "nanoid": "^4.0.0",
+    "nodejs-nodemailer-outlook": "^1.2.4"
+  }
+}
