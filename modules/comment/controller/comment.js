@@ -1,4 +1,3 @@
-import { json } from "express"
 import { commentModel } from "../../../DB/models/Comment.js"
 import { productModel } from '../../../DB/models/product.js'
 import { decryptPhone } from "../../auth/controller/auth.js"
@@ -27,8 +26,7 @@ export const addComment = async (req, res) => {
         for (const like of updateCommentsProduct?.likes) {
             console.log({ like });
             like.phone = decryptPhone(like.phone)
-        }
-        // updateCommentsProduct.likes.phone = decryptPhone(updateCommentsProduct.likes.phone)
+        } 
         updateCommentsProduct ? res.status(200).json({ message: "Done", updateCommentsProduct }) : res.status(400).json({ message: "fail to add comment to it's product" })
     } else res.status(400).json({ message: "failedd to save comment" })
     } catch (error) {

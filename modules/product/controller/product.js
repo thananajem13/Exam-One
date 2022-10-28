@@ -94,8 +94,7 @@ export const likeProduct = async (req, res) => {
     console.log(!product);
     if (!product) {
         res.status(400).json({ message: "invalid product id or you're owner of this product, so you can't like it or post is deleted" })
-    } else {
-        // const likess = await productModel.findOne({ likes: { $in: [ _id ] } })
+    } else { 
         const likess = await productModel.findOne({ $and: [{ likes: { $in: [_id] } }, { _id: productID }] })
 
         if (!likess) {
@@ -123,8 +122,7 @@ export const unLikeProduct = async (req, res) => {
     console.log({ product });
     if (product) {
         res.status(400).json({ message: "invalid product id or you're owner of this product, so you can't like it" })
-    } else {
-        // const likess = await productModel.findOne({ likes: { $in: [ _id ] } })
+    } else { 
         const likess = await productModel.findOne({ $and: [{ likes: { $in: [_id] } }, { _id: productID }] })
 
         if (likess) {

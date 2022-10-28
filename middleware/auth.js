@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { userModel } from '../DB/models/user.js'
-import { changeOfflineToOnLine } from '../modules/user/controller/user.js';
+import { userModel } from '../DB/models/user.js' 
 
 export const auth = () => {
     return async (req, res, next) => {
@@ -21,8 +20,7 @@ export const auth = () => {
                         res.status(400).json({ message: "invalid token user" })
                         // next(null)
                     } else {
-                        req.user = user
-                        // await changeOfflineToOnLine(user)
+                        req.user = user 
                         next()
                     }
                 }

@@ -133,16 +133,14 @@ export const refToken = async (req, res) => {
             if (!user) {
                 res.status(400).json({ message: "not register account" })
             } else {
-                // if (user.confirmEmail) {
-                //     res.status(409).json({ message: "Already confirmed" })
-                // } else {
+                 
                     const token = jwt.sign({ id: user._id }, process.env.loginToken,
                         { expiresIn: '30d' })
                     
 
                     
                     res.json({ message: "Done" ,refreshToken:token})
-                // }
+               
             }
         }
 
@@ -182,8 +180,7 @@ export const SignIn = async (req, res) => {
 
     try {
         const { email, password } = req.body
-        const user = await userModel.findOne({ email, isBlocked: false,isDeleted:false, confirmEmail: true })
-        // const user = await userModel.findOne({ email, isDeleted: false, isBlocked: false, confirmEmail: true })
+        const user = await userModel.findOne({ email, isBlocked: false,isDeleted:false, confirmEmail: true }) 
         if (!user) {
             res.status(400).json({ message: "invalid email or deleted or blocked or unconfirmed account" })
         } else {
@@ -193,14 +190,10 @@ export const SignIn = async (req, res) => {
             } else {
                 const token = jwt.sign({ id: user._id, loggedIn: true }, process.env.loginToken, { expiresIn: '1h' })
                 const rfToken = jwt.sign({ id: user._id, loggedIn: true }, process.env.loginToken)//by this way or navigate refresh token router
-                // const rfToken = jwt.sign({ id: user._id, loggedIn: true }, process.env.emailToken)
-                res.cookie('rfToken',rfToken)
-                res.cookie('token',token)
-
+               
                 await changeOfflineToOnLine(user)
 
-                // const updateOnlineStatus = await userModel.updateOne({ _id: user._id }, { online: true,lastSeen:null })
-                res.status(200).json({ message: "Done", token, rfToken })
+                 res.status(200).json({ message: "Done", token, rfToken })
             }
 
         }
@@ -214,7 +207,7 @@ export const getUserByID = async (req, res) => {
          const { id } = req.params
 
     const user = await userModel.findOne({ _id: id, isDeleted: false, isBlocked: false, confirmEmail: true })
-    // console.log(`user:: ${user}`);
+     
     if (user) {
         user.phone = decryptPhone(user.phone)
         res.status(200).json({ message: "done", user })
@@ -243,12 +236,11 @@ try {
     } else {
         const code = nanoid()
         const genreateToken = jwt.sign({ id: user._id, code }, process.env.resetToken, { expiresIn: '10m' })
-        // const token = new tokenModel({ token: genreateToken, userID: user._id })
-        // token.save()
+        
         await userModel.updateOne({ email }, { code })//extra step
         const resetPassword =
             `${req.protocol}://${req.headers.host}${process.env.BASEURL}/auth/resetPass/${genreateToken}`
-            // `activatedCode: ${code}<br>` 
+            
 
         myEmail(email,
             'reset password',
@@ -265,41 +257,17 @@ try {
 export const resetPass = async (req, res) => {
     try {
          const { token } = req.params
-    const decoded = jwt.verify(token, process.env.resetToken)
-    // console.log(`decoded?.id:${decoded?.id}`);
+    const decoded = jwt.verify(token, process.env.resetToken) 
     if (decoded?.id) {
         res.status(200).json({message:`Done set this code in your request {code : ${decoded.code}}`})
-        // const isActiveToken = await tokenModel.findOne({ token, userID: decoded.id, isDeleted: false })
-        // await userModel.updateOne({ _id:decoded.id }, { code:null })
-        // console.log({isActiveToken});
-        // if(isActiveToken){
-            // await tokenModel.updateOne({ _id: decoded.id, token: token }, { isDeleted: true })
-            // console.log("before: ",req.method);
-            // req.method = 'POST'
-            // res.redirect(302,`/postResetpass`);  
-            // res.redirect(307,`/postResetpass`);  
-        // var fullUrl = req.originalUrl.split('/api/v1/')[1]; 
-        // console.log({fullUrl});
-        // req.originalUrl.replace("/"+fullUrl+"/gi", "auth/postResetpass")
-        // var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-
-        // console.log({"originalUrl":req.originalUrl,fullUrl});
-
-        //     console.log("after: ",req.method); 
-            // res.json('redirectto post pass')
-        // }else{
-        //     res.status(400).json(`send another link to email.. click here: <a href="/forgetPass">forget password</a>`)
-        //     // or
-        //     // res.redirect('/forgetPass')
-        // }
+        
     const Token = jwt.sign(decoded, process.env.resetToken,{expiresIn:0})}
      else {
         res.status(400).json({ message: "invalid token, you can't use this url again you should send another email to set your forget pass" })
     }
     
     } catch (error) { 
-            res.status(500).json({message:'catch error',error})
-                        // res.redirect('/forgetPass')
+            res.status(500).json({message:'catch error',error}) 
  
     }
    
@@ -311,12 +279,9 @@ export const resetPass = async (req, res) => {
 
 }
 export const postResetpass = async (req, res) => {
-    try {
-        // const { token } = req.params
+    try { 
     const { email, newPassword ,code} = req.body
-
-    // const decoded = jwt.verify(token, process.env.resetToken)
-    // if (decoded?.id) {
+  
         if(code==null){
             res.status(400).json({message:"not accepted as null"})
         }else{
@@ -332,31 +297,9 @@ export const postResetpass = async (req, res) => {
         }
         }
        
-
-    // }else{
-    //     res.redirect('/forgetPass')
-    // }
+ 
     } catch (error) {
         res.status(500).json({message:"catch error",error})
-        // console.log("hhhhhhhhh");
-        // if (error.name === 'JsonTokenExpired') {
-// console.log(error);
-// req.method='GET'
-//         res.redirect(307,`${process.env.BASEURL}/auth/forgetPass`)
-//         var fullUrl = req.originalUrl.split('/api/v1/')[1]; 
-//         req.originalUrl.replace(fullUrl, "auth/forgetPass")
-//         console.log({"test":req.originalUrl});
-        // res.redirect(307,'/forgetPass')
-    // }
+       
     }
-    
-    // if (code == null) {
-    //     res.status(400).json({ message: "In-valid code because null not accepted" })
-    // } else {
-    //     const hashPassword = await hashPass(newPassword)
-    //     const user = await userModel.updateOne({ email, code },
-    //         { password: hashPassword, code: null })
-    //     user.modifiedCount ? res.json({ message: "Done" }) :
-    //         res.json({ message: "In-valid code" })
-    // }
 }

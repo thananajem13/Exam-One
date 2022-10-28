@@ -52,11 +52,9 @@ export const updateProfile = async (req, res) => {
         if (gender) {
             updateUser.gender = gender
         }
-        const user = await userModel.findByIdAndUpdate({ _id }, updateUser, { new: true })
-        // console.log(req.body);
+        const user = await userModel.findByIdAndUpdate({ _id }, updateUser, { new: true }) 
         user.phone = decryptPhone(user.phone)
-        user ? res.status(200).json({ message: "done", user }) : res.status(400).json({ message: "in-valid id", user })
-        // console.log(`user: ${user}`);
+        user ? res.status(200).json({ message: "done", user }) : res.status(400).json({ message: "in-valid id", user }) 
 
 
 
@@ -67,20 +65,7 @@ export const updateProfile = async (req, res) => {
         res.status(500).json({ message: "catch error", error })
     }
 }
-
-// export const checkIfEmailExist = async (email) => {
-//     try {
-//         const user = await userModel.findOne({ email }).select('email')
-//         console.log(`userEmailexist: ${user}`);
-//         if (user) {
-//             return true
-//         }
-//         return false
-//     } catch (error) {
-//         res.status(500).json({ message: "catch error", error })
-//     }
-
-// }
+ 
 export const updatePassword = async (req, res) => {
     try {
         const { _id } = req.user
@@ -105,8 +90,7 @@ export const updatePassword = async (req, res) => {
 }
 export const checkNumOfAdminExpcetLoggedNow = async (loggedAdminID) => {
     try {
-        const adminsCount = await userModel.find({ role: "admin", _id: { $ne: loggedAdminID } })
-        // console.log({admin:adminsCount.length()});
+        const adminsCount = await userModel.find({ role: "admin", _id: { $ne: loggedAdminID } }) 
         return adminsCount.count()
     } catch (error) {
         res.status(500).json({ message: "catch error", error })
@@ -115,8 +99,7 @@ export const checkNumOfAdminExpcetLoggedNow = async (loggedAdminID) => {
 }
 export const softDeleteProfile = async (req, res) => {
     try {
-        const { _id, role } = req.user
-        // console.log({ _id, role });
+        const { _id, role } = req.user 
         const adminsCount = await userModel.find({ role: "admin", _id: { $ne: _id } }).count()
 
         // I dont check if isDeleted:false because I check it in auth middleware
@@ -126,9 +109,7 @@ export const softDeleteProfile = async (req, res) => {
             jwt.sign({ _id }, process.env.loginToken, { expiresIn: 0 })
         } else if (role == 'admin' && adminsCount == 0) {
             res.status(409).json({ message: "website will be with no admins so set any user to be admin" })
-        }
-        // res.redirect('/auth/signin');
-        // jwt.sign(req.cookies.token,process.env.loginToken,{expiresIn:0})
+        } 
     } catch (error) {
         res.status(500).json({ message: "catch error", error })
     }
@@ -152,10 +133,7 @@ export const blockAccount = async (req, res) => {
     try {
         const { id } = req.body
         const blockedAccount = await userModel.findOne({ _id: id, isBlocked: false, role: "user" }
-        )
-        // const blockedAccount = await userModel.findOne({$and:[{_id:id},{role:"user"},{isBlocked:false},{_id:{$ne:req.user._id}}]})
-        // console.log(blockedAccount);
-        // const blockedAccount = await userModel.findOne({_id:id,confirmEmail:true,isBlocked:false,isDeleted:false})
+        ) 
         if (blockedAccount) {
             if (blockAccount._id !== req.user._id) {
                 const updatedUser = await userModel.findByIdAndUpdate(id, { isBlocked: true }, { new: true })
@@ -211,8 +189,7 @@ export const getAllUsers = async (req, res) => {
         let users = await userModel.find()
         let products = await productModel.find();
         let commentsProducts = products?.comments
-        let describedComment = await commentModel.find()
-        // console.log({type:typeof describedComment});  
+        let describedComment = await commentModel.find()  
         let commentsOfProducts = []
 
         for (const user of users) {
@@ -220,8 +197,7 @@ export const getAllUsers = async (req, res) => {
             productsOfUser = []
             for (const product of products) {
 
-                if (user._id.equals(product.createdBy)) {
-                    // console.log(product);
+                if (user._id.equals(product.createdBy)) { 
                     for (const productComment of product.comments) {
                         for (const comment of describedComment) {
                             if (productComment._id.equals(comment._id)) {
@@ -235,8 +211,7 @@ export const getAllUsers = async (req, res) => {
                     productsOfUser.push(product)
                 }
             }
-            user.products = productsOfUser
-            // console.log({productProps:user });
+            user.products = productsOfUser 
         }
         const popUsers = users
         res.json({ message: "success", popUsers })

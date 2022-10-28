@@ -3,9 +3,7 @@ dotenv.config()
 import express from 'express'
 import connectDB from './DB/connection.js'
 import { addFirstAdmin } from './helper/admins.js'
-import * as indexRouter from './modules/index.router.js'
-import cookieParser from 'cookie-parser'
-// import cookieparser from 'cookie-parser'
+import * as indexRouter from './modules/index.router.js' 
 
 const app = express()
 
@@ -13,12 +11,9 @@ const port = 3000
 
 const baseURL = process.env.BASEURL
 
-app.use(express.json())
-app.use(cookieParser());
+app.use(express.json()) 
 connectDB()
-addFirstAdmin()
-// app.use(addFirstAdmin)
-// app.use(cookieparser())
+addFirstAdmin() 
 app.use(`${baseURL}/user`, indexRouter.userRouter)
 
 app.use(`${baseURL}/auth`,indexRouter.authRouter)

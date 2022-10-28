@@ -66,23 +66,9 @@ role:{
 code:{
     type:String,
     default:null
-},
-// products:[productSchema],
-products:[productSchema],
-// products:{type : Array , "default" : []},
-test:[
-    productSchema
-]
-// products:[{
-//     type:Types.ObjectId,
-//     ref:'Product',
-//     // required:true
-// } ]
-// role:{ 
-//     type: Array,  
-//     enum: [['user'], ['admin']], 
-//     default: ["user"] 
-// },
+}, 
+products:[productSchema], 
+ 
 
 
 },{
